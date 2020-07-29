@@ -8,71 +8,29 @@ class StateHandler:
         neighborMap = oldNeighborMap.copy()
         cells = oldCells.copy()
         cells.add((x, y))
-        neighborMap[(x, y)] = 0
-        if((x-1, y-1) in cells):
-            neighborMap[(x, y)]+=1
-        if(((x-1, y-1) not in neighborMap)):
-            neighborMap[(x-1, y-1)]=0
-        neighborMap[(x-1, y-1)]+=1
+        neighborMap[(x, y)] = 0        
+        for i in range(-1, 2):
+            for j in range(-1, 2):
+                if(i==0 and j==0):
+                    continue
+                if((x+i, y+j) in cells):
+                    neighborMap[(x, y)]+=1
+                if((x+i, y+j) not in neighborMap):
+                    neighborMap[(x+i, y+j)]=0
+                neighborMap[(x+i, y+j)]+=1
 
-        if((x, y-1) in cells):
-            neighborMap[(x, y)]+=1
-        if((x, y-1) not in neighborMap):
-            neighborMap[(x, y-1)]=0
-        neighborMap[(x, y-1)]+=1
-
-        if((x+1, y-1) in cells):
-            neighborMap[(x, y)]+=1
-        if((x+1, y-1) not in neighborMap):
-            neighborMap[(x+1, y-1)]=0
-        neighborMap[(x+1, y-1)]+=1
-
-        if((x-1, y) in cells):
-            neighborMap[(x, y)]+=1
-        if((x-1, y) not in neighborMap):
-            neighborMap[(x-1, y)]=0
-        neighborMap[(x-1, y)]+=1
-
-        if((x+1, y) in cells):
-            neighborMap[(x, y)]+=1
-        if((x+1, y) not in neighborMap):
-            neighborMap[(x+1, y)]=0
-        neighborMap[(x+1, y)]+=1
-
-        if((x-1, y+1) in cells):
-            neighborMap[(x, y)]+=1
-        if((x-1, y+1) not in neighborMap):
-            neighborMap[(x-1, y+1)]=0
-        neighborMap[(x-1, y+1)]+=1
-
-        if((x, y+1) in cells):
-            neighborMap[(x, y)]+=1
-        if((x, y+1) not in neighborMap):
-            neighborMap[(x, y+1)]=0
-        neighborMap[(x, y+1)]+=1
-
-        if((x+1, y+1) in cells):
-            neighborMap[(x, y)]+=1
-        if((x+1, y+1) not in neighborMap):
-            neighborMap[(x+1, y+1)]=0
-        neighborMap[(x+1, y+1)]+=1
-        
         return (neighborMap, cells)
 
     def removeCell(self, x_y, oldNeighborMap, oldCells):
         x, y = x_y
         neighborMap = oldNeighborMap.copy()
         cells = oldCells.copy()
-        
-        neighborMap[(x-1, y-1)]-=1
-        neighborMap[(x, y-1)]-=1
-        neighborMap[(x+1, y-1)]-=1
-        neighborMap[(x-1, y)]-=1
-        neighborMap[(x+1, y)]-=1
-        neighborMap[(x-1, y+1)]-=1
-        neighborMap[(x, y+1)]-=1
-        neighborMap[(x+1, y+1)]-=1
 
+        for i in range(-1, 2):
+            for j in range(-1, 2):
+                if(i==0 and j==0):
+                    continue
+                neighborMap[(x+i, y+j)]-=1
         
         cells.remove((x, y))
 
