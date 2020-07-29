@@ -40,8 +40,8 @@ while running:
                     pos = pg.mouse.get_pos()
                     actualCellSize = painter.getActualCellSize()
                     gridThickness = painter.getGridThickness()
-                    x = int(pos[0]/(math.ceil(actualCellSize)+gridThickness))
-                    y = int(pos[1]/(math.ceil(actualCellSize)+gridThickness))
+                    x = int((pos[0]+cameraPosition[0])/(math.ceil(actualCellSize)+gridThickness))
+                    y = int((pos[1]+cameraPosition[1])/(math.ceil(actualCellSize)+gridThickness))
                     if(grid.isCellLive((x, y))):
                         grid.removeCell((x, y))
                     else:
