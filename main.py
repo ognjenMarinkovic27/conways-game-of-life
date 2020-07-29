@@ -57,11 +57,13 @@ while running:
 
         elif event.type == pg.KEYDOWN:
             if event.key == pg.K_SPACE:
-                simulate = True
+                simulate = not simulate
             elif event.key == pg.K_1:
                 toolIndex = 1
             elif event.key == pg.K_2:
                 toolIndex = 2
+            elif event.key == pg.K_g:
+                painter.toggleGrid()
 
     clock.tick(60)
 

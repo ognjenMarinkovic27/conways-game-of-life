@@ -47,3 +47,6 @@ class Painter:
 
     def getGridThickness(self):
         return self.__gridThickness
+
+    def toggleGrid(self):
+        self.__showGrid = not self.__showGrid
