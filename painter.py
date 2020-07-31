@@ -18,8 +18,8 @@ class Painter:
         for i in range(0, int(self.__width/(actuallCellSize+self.__gridThickness)+2)):
             linePosX = i*(actuallCellSize+self.__gridThickness) - cameraPosition[0]%(actuallCellSize+1)
             linePosY = i*(actuallCellSize+self.__gridThickness) - cameraPosition[1]%(actuallCellSize+1)
-            pg.draw.rect(self.__window, pg.Color("#C0C0C0"), ( (linePosX , 0), (self.__gridThickness, self.__height) ) )
-            pg.draw.rect(self.__window, pg.Color("#C0C0C0"), ( (0 , linePosY), (self.__width, self.__gridThickness) ) )
+            pg.draw.rect(self.__window, pg.Color("#292929"), ( (linePosX , 0), (self.__gridThickness, self.__height) ) )
+            pg.draw.rect(self.__window, pg.Color("#292929"), ( (0 , linePosY), (self.__width, self.__gridThickness) ) )
 
     
     def __drawCells(self, cells, cameraPosition):
