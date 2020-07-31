@@ -40,7 +40,7 @@ class Painter:
         self.__zoomMultiplier = min(2, self.__zoomMultiplier+0.25)
 
     def ZoomOut(self):
-        self.__zoomMultiplier = max(0.5, self.__zoomMultiplier-0.25)
+        self.__zoomMultiplier = max(0.1, self.__zoomMultiplier-0.25)
 
     def getActualCellSize(self):
         return self.__cellSize*self.__zoomMultiplier
